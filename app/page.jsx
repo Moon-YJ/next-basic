@@ -17,7 +17,14 @@ export default function Home() {
 			</div> */}
 			<div className={clsx(styles.pic)}>
 				{/* fill을 추가하거나 아니면 width, height 값 넣어줘야 next가 미리 값을 읽을 수 있음 */}
-				<Image src={pic2} alt='image' width={500} height={500} quality={75} />
+				<Image
+					src={pic2}
+					alt='image'
+					width={500}
+					height={500}
+					quality={75}
+					priority
+				/>
 			</div>
 			<div className={clsx(styles.pic)}>
 				{/* priority 설정하면 먼저 랜더링됨 */}
@@ -31,6 +38,16 @@ export default function Home() {
 					// min-width: 808px이면 50vw, 아니면 100vw
 					sizes='(min-width: 808px) 50vw, 100vw'
 				/>
+				<div className={clsx(styles.pic)}>
+					<Image
+						src={test}
+						alt='image'
+						quality={75}
+						fill
+						sizes='(min-width: 808px) 50vw, 100vw'
+						placeholder='blur'
+					/>
+				</div>
 			</div>
 		</main>
 	);
@@ -49,4 +66,8 @@ export default function Home() {
   6. Image 컴포넌트 호출시 가급적 width, height 속성을 지정해야 next가 빌드시 해당 사이즈에 맞는 최적화 작업을 할 수 있음
   7. 이미지의 크기가 고정값이 아닐때에는 fill 속성 추가 (연결되어있는 style의 넓이, 높이를 판단해서 최적화)
     --> fill 속성 적용시 추가적으로 하면 좋은 속성: sizes
+  8. placeholder='blur'로 지정시(로컬이미지일때) 미리 용량은 blur 이미지를 먼저 출력하고 전체 이미지 랜더링 완료시 변경처리(주의: placeholder 지정시 lazy loading기능 강제 해제됨, priority 적용시에는 placeholder 적용 안됨)
+  
+  ==> 처음 마운트시 화면에 보일 큰 이미지에 적용할 수 있는 두가지 옵션
+      : priority 지정 or placeholder 지정
 */
