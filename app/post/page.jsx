@@ -1,4 +1,5 @@
-'use client'; // react-query 훅 쓰는 컴포넌트도 use client 구문 추가
+'use client'; // useEffect안쪽에 fetch문 쓸때(client에서 데이터 가져오는것이므로), react-query 훅 쓰는 컴포넌트일때 use client 구문 추가
+
 import PostList from '@/components/postList/postList';
 import styles from './post.module.scss';
 import clsx from 'clsx';
