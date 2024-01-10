@@ -31,6 +31,17 @@ export default function PostDetail({ params }) {
 					);
 				})}
 			</p>
+			{/* <p>
+				{Post?.body
+					.split('\n')
+					.map((txt) =>
+						React.createElement(
+							'p',
+							null,
+							React.createElement('span', null, txt)
+						)
+					)}
+			</p> */}
 		</div>
 	);
 }
