@@ -2,13 +2,9 @@
 // client (GET): fetch('/api/post/1', {method: 'GET'})
 // client (POST): fetch('/api/post', {method: 'POST', body:{data}})
 
+// Get 처리
 import { NextResponse } from 'next/server';
-
-const posts = [
-	{ id: 1, name: 'David', age: 20 },
-	{ id: 2, name: 'Emily', age: 22 },
-	{ id: 3, name: 'Michelle', age: 30 },
-];
+import { posts } from '@/DB/postData';
 
 export function GET() {
 	return NextResponse.json({ result: posts });

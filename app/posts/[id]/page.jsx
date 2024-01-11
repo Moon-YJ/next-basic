@@ -9,9 +9,9 @@ export default function PostsDetail({ params }) {
 		const fetchPostById = async (url) => {
 			const data = await fetch(url, { method: 'GET' });
 			const json = await data.json();
-			setPost(json.result[params.id - 1]);
+			setPost(json.result);
 		};
-		fetchPostById('/api/post');
+		fetchPostById(`/api/post/${params.id}`);
 	}, [params.id]);
 
 	return (
