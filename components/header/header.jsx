@@ -36,6 +36,14 @@ export default function Header() {
 						post
 					</Link>
 				</li>
+				<li>
+					<Link
+						href='/posts'
+						className={pathname === '/posts' ? styles.on : ''}
+					>
+						posts
+					</Link>
+				</li>
 			</ul>
 		</header>
 	);
