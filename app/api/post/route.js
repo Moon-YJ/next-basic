@@ -5,9 +5,9 @@
 import { NextResponse } from 'next/server';
 
 const posts = [
-	{ name: 'David', age: 20 },
-	{ name: 'Emily', age: 22 },
-	{ name: 'Michelle', age: 30 },
+	{ id: 1, name: 'David', age: 20 },
+	{ id: 2, name: 'Emily', age: 22 },
+	{ id: 3, name: 'Michelle', age: 30 },
 ];
 
 export function GET() {

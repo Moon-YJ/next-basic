@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function PostLists() {
@@ -9,7 +10,6 @@ export default function PostLists() {
 		const fetchPost = async (url) => {
 			const data = await fetch(url, { method: 'GET' });
 			const json = await data.json();
-			console.log(json.result);
 			setPosts(json.result);
 		};
 		fetchPost('/api/post');
@@ -20,7 +20,9 @@ export default function PostLists() {
 			{Posts.map((post) => {
 				return (
 					<article key={post.name}>
-						<h2>{post.name}</h2>
+						<h2>
+							<Link href={`/posts/${post.id}`}>{post.name}</Link>
+						</h2>
 					</article>
 				);
 			})}
